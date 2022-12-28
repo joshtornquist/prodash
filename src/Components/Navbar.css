@@ -1,0 +1,20 @@
+body, html {
+    font-family: 'Nunito', sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+
+}
+
+.navbar-logo {
+    width: 15vw;
+    padding: 2vw;
+}
+
+
+

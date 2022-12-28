@@ -1,0 +1,87 @@
+body, html {
+    font-family: 'Nunito', sans-serif;
+}
+
+.team-access-container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.team-access-form-container {
+    position: absolute;
+    top: 0;
+    left: 50vw;
+    background-color: transparent;
+    width: 50vw;
+    height: 100vh;
+}
+
+.team-access-welcome-message {
+    margin-top: 10vh;
+    margin-left: 5vw;
+    font-size: 2em;
+    color: rgb(250, 249, 246);
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+
+.team-access-update-form {
+    background-color: transparent;
+    width: 40vw;
+    height: 60vh;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    font-family: 'Nunito', sans-serif;
+    
+}
+
+.team-access-name-input, .team-access-project-input {
+    width: 25vw;
+    height: 5vh;
+    border-radius: 25px;
+    border: none;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-left: 1.5vw;
+    color: black;
+    font-size: 10pt;
+    font-family: 'Nunito', sans-serif;
+}
+
+.team-access-date-picker {
+    width: 100px;
+    height: 5vh;
+    border-radius: 25px;
+    border: none;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-size: 10pt;
+    font-family: 'Nunito', sans-serif;
+}
+
+.team-access-update-description {
+    width: 35vw;
+    height: 20vh;
+    border-radius: 25px;
+    border: none;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-left: 1.5vw;
+    padding-top: .8vh;
+    resize: none;
+    font-size: 10pt;
+    font-family: 'Nunito', sans-serif;
+}
+
+.team-access-form-submit {
+    margin-top: 3vh;
+    width: 100px;
+    height: 7vh;
+    border-radius: 25px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+.team-access-form-submit:hover {
+    background-color: aqua;
+}
