@@ -29,8 +29,7 @@ const db = getFirestore()
 const docRef = doc(db,  CLIENT_NAME, "Web Team");
 
 
-function Homepage(props) {
-
+function TeamAccess({ navigate, ...props }) {
     const [info, setInfo] = useState(null)
     const [startDate, setStartDate] = useState(new Date());
     const [teamName, setTeamName] = useState(null)
@@ -55,6 +54,7 @@ function Homepage(props) {
         getData()
     }, [])
 
+
     // Pushing updates to Firebase
     async function update() {
         await addDoc(collection(db, "Center For Digital Humanities"), {
@@ -66,6 +66,7 @@ function Homepage(props) {
                 });
             }
 
+        
         return (
             <>
             <div className="team-access-container" style={{ backgroundSize: "cover", backgroundImage: `url(${TeamBackground})`}}>
@@ -88,6 +89,9 @@ function Homepage(props) {
             </div>
             </>
         )
+    
+
+
 
 }
-export default Homepage;
+export default TeamAccess;

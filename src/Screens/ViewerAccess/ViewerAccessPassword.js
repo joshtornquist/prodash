@@ -1,19 +1,18 @@
 import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
 import { useNavigate, Link, useLocation, Navigate } from 'react-router-dom';
-import "./TeamAccess.css";
-import TeamBackground from "./images/TeamAccessBackground.png"
+import "./ViewerAccess.css";
+import ViewerBackground from "./images/ViewerBackground.png"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import TeamAccess from './TeamAccess';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import ViewerAccess from './ViewerAccess';
 
 
 
 const CLIENT_NAME = "Center For Digital Humanities"
 const CLIENT_UPDATE = CLIENT_NAME + "_Update"
-const TEAM_NAME = "Web Team"
+const TEAM_NAME = "Web Viewer"
 
 const firebaseConfig = {
   apiKey: "AIzaSyA1JzguBn8V2a4Lyp3u7KdN8Xcq2l-av7A",
@@ -27,10 +26,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore()
-const docRef = doc(db,  CLIENT_NAME, "Web Team");
+const docRef = doc(db,  CLIENT_NAME, "Web Viewer");
 
 
-export default function TeamAccessPassword() {
+export default function ViewerAccessPassword() {
 
     const [passwordCheck, setPasswordCheck] = useState("")
     const [organizationName, setOrganizationName] = useState("")
@@ -38,22 +37,22 @@ export default function TeamAccessPassword() {
     // Listening for password to be correctly entered
     function login() {
         if (passwordCheck == "123") {            
-            return navigate("/teams")
+            return navigate("/viewer")
             
             }
         }
 
     return (
         <>
-        <div className="team-access-container" style={{ backgroundSize: "cover", backgroundImage: `url(${TeamBackground})`}}>
-            <div className="team-access-form-container">
-                <div className="team-access-welcome-message">
+        <div className="viewer-access-container" style={{ backgroundSize: "cover", backgroundImage: `url(${ViewerBackground})`}}>
+            <div className="viewer-access-form-container">
+                <div className="viewer-access-welcome-message">
                     Log in
                 </div>
-                <div className="team-access-password-form">
-                    <input placeholder="Organization" className="team-access-organization-input" onChange={(e) => setOrganizationName(e.target.value)}></input>
-                    <input type="password" placeholder="Password" className="team-access-password-input" onChange={(e) => setPasswordCheck(e.target.value)}></input>
-                    <input title="Submit" onClick={login} className="team-access-form-submit" type="submit"></input>
+                <div className="viewer-access-password-form">
+                    <input placeholder="Organization" className="viewer-access-organization-input" onChange={(e) => setOrganizationName(e.target.value)}></input>
+                    <input type="password" placeholder="Password" className="viewer-access-password-input" onChange={(e) => setPasswordCheck(e.target.value)}></input>
+                    <input title="Submit" onClick={login} className="viewer-access-form-submit" type="submit"></input>
                 </div>
 
             </div>
