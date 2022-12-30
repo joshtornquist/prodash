@@ -11,24 +11,9 @@ import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
 
 
-const CLIENT_NAME = "Center For Digital Humanities"
-const CLIENT_UPDATE = CLIENT_NAME + "_Update"
-const TEAM_NAME = "Web Team"
 
-const firebaseConfig = {
-  apiKey: "AIzaSyA1JzguBn8V2a4Lyp3u7KdN8Xcq2l-av7A",
-  authDomain: "prodash-474ff.firebaseapp.com",
-  projectId: "prodash-474ff",
-  storageBucket: "prodash-474ff.appspot.com",
-  messagingSenderId: "5441845336",
-  appId: "1:5441845336:web:56bba96aaa9debb3f7f22d"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore()
-const docRef = doc(db,  CLIENT_NAME, "Web Team");
-
+export var TEAM_NAME = "Non-human"
+export var CLIENT_NAME = "Center For Digital Humanities"
 
 export default function TeamAccessPassword() {
 
@@ -37,9 +22,15 @@ export default function TeamAccessPassword() {
     const navigate = useNavigate();
     // Listening for password to be correctly entered
     function login() {
-        if (passwordCheck == "123") {            
+        if (passwordCheck == "web") { 
+            TEAM_NAME = "Web Team"  
+            CLIENT_NAME = "Center for Digital Humanities"         
             return navigate("/teams")
-            
+            }
+
+        if (passwordCheck == "arvr") { 
+            TEAM_NAME = "AR/VR Team"           
+            return navigate("/teams")
             }
         }
 

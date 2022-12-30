@@ -6,13 +6,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import TeamAccessPassword from './TeamAccessPassword';
+import TeamAccessPassword, {TEAM_NAME, CLIENT_NAME} from './TeamAccessPassword';
 
-
-
-const CLIENT_NAME = "Center For Digital Humanities"
-const CLIENT_UPDATE = CLIENT_NAME + "_Update"
-const TEAM_NAME = "Web Team"
 
 const firebaseConfig = {
   apiKey: "AIzaSyA1JzguBn8V2a4Lyp3u7KdN8Xcq2l-av7A",
@@ -26,7 +21,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore()
-const docRef = doc(db,  CLIENT_NAME, "Web Team");
+
 
 
 function TeamAccess({ navigate, ...props }) {
@@ -38,26 +33,10 @@ function TeamAccess({ navigate, ...props }) {
     const [description, setDescription] = useState(null)
     
 
-    async function getData() {
-            const docSnap = await getDoc(docRef);
-                if (docSnap.exists()) {
-                    setInfo(docSnap.data());
-                    setTeamName(docSnap.data().teamName)
-                } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-                }
-        }
-
-    // Listening to grab data from Firebase
-    useEffect(() => {
-        getData()
-    }, [])
-
 
     // Pushing updates to Firebase
     async function update() {
-        await addDoc(collection(db, "Center For Digital Humanities"), {
+        await addDoc(collection(db, CLIENT_NAME), {
             teamName: TEAM_NAME,
             memberName: memberName,
             projectName: projectName,
