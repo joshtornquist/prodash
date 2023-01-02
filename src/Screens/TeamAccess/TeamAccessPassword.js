@@ -24,7 +24,7 @@ export default function TeamAccessPassword() {
     function login() {
         if (passwordCheck == "web") { 
             TEAM_NAME = "Web Team"  
-            CLIENT_NAME = "Center for Digital Humanities"         
+            CLIENT_NAME = "Center For Digital Humanities"         
             return navigate("/teams")
             }
 

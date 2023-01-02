@@ -192,10 +192,41 @@ body, html {
     margin: auto;
 }
 
-.viewer-stats-team-name {
+.viewer-stats-viewer-name {
     color: rgb(245, 244, 228);
     font-family: 'Nunito', sans-serif;
     text-align: center;  
     margin-top: 1vh;
     font-weight: bold;  
+}
+
+/* Responsiveness */
+
+@media screen and (max-width: 800px) {
+    .viewer-access-form-container {
+        position: absolute;
+        top: 0;
+        left: 5vw;
+        background-color: transparent;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .viewer-access-name-input, 
+    .viewer-access-project-input, 
+    .viewer-access-password-input,
+    .viewer-access-organization-input {
+        width: 50vw;
+    }
+
+    .viewer-access-update-description {
+        width: 65vw;
+    }
+
+    .viewer-access-update-form,
+    .viewer-access-password-form  {
+        width: 60vw;
+        padding: 5vw;
+        padding-bottom: 5vh;
+    }
 }
