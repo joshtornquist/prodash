@@ -2,12 +2,12 @@ body, html {
     font-family: 'Nunito', sans-serif;
 }
 
-.team-access-container {
+.post-form-submit-container {
     height: 100vh;
     width: 100vw;
 }
 
-.team-access-form-container {
+.post-form-submit-form-container {
     position: absolute;
     top: 0;
     left: 50vw;
@@ -19,18 +19,17 @@ body, html {
 
 
 
-.team-access-welcome-message {
+.post-form-submit-welcome-message {
     margin-top: 10vh;
     margin-left: 0vw;
-    width: 80vw;
     font-size: 2em;
     color: rgb(245, 244, 228);
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
 }
 
-.team-access-update-form {
-    background-color: rgb(22, 23, 29, .9);
+.post-form-submit-update-form {
+    background-color: rgb(22, 23, 29, .5);
     width: 40vw;
     height: 60vh;
     margin-top: 5vh;
@@ -40,24 +39,7 @@ body, html {
     padding-bottom: 5vh;
     border-radius: 25px;
 }
-
-.team-access-update-form-post-submit {
-    background-color: rgb(22, 23, 29, .5);
-    width: 20vw;
-    height: auto;
-    margin-top: 5vh;
-    margin-left: 0vw;
-    font-family: 'Nunito', sans-serif; 
-    padding: 10vw; 
-    border-radius: 25px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
-}
-
-
-.team-access-password-form {
+.post-form-submit-password-form {
     background-color: rgb(22, 23, 29, .5);
     width: 30vw;
     height: auto;
@@ -69,10 +51,10 @@ body, html {
     
 }
 
-.team-access-name-input, 
-.team-access-project-input, 
-.team-access-password-input,
-.team-access-organization-input {
+.post-form-submit-name-input, 
+.post-form-submit-project-input, 
+.post-form-submit-password-input,
+.post-form-submit-organization-input {
     width: 25vw;
     height: 5vh;
     border-radius: 25px;
@@ -86,7 +68,7 @@ body, html {
     background-color: rgb(245, 244, 228);
 }
 
-.team-access-date-picker {
+.post-form-submit-date-picker {
     width: 100px;
     height: 5vh;
     border-radius: 25px;
@@ -99,7 +81,7 @@ body, html {
     background-color: rgb(245, 244, 228);
 }
 
-.team-access-update-description {
+.post-form-submit-update-description {
     width: 35vw;
     height: 20vh;
     border-radius: 25px;
@@ -114,33 +96,9 @@ body, html {
     background-color: rgb(245, 244, 228);
 }
 
-.team-access-form-submit {
+.post-form-submit-form-submit {
     margin-top: 3vh;
     width: 100px;
-    height: 7vh;
-    border-radius: 25px;
-    border: none;
-    font-family: 'Nunito', sans-serif;
-    background-color: rgb(145, 67, 63);
-    color: rgb(245, 244, 228);
-    font-weight: bold;
-}
-
-.team-access-form-submit-post-submit-new-update {
-    margin: 2vw;
-    width: 150px;
-    height: 7vh;
-    border-radius: 25px;
-    border: none;
-    font-family: 'Nunito', sans-serif;
-    background-color: rgb(145, 67, 63);
-    color: rgb(245, 244, 228);
-    font-weight: bold;
-}
-
-.team-access-form-submit-post-submit-home {
-    margin: 2vw;
-    width: 150px;
     height: 7vh;
     border-radius: 25px;
     border: none;
@@ -150,20 +108,17 @@ body, html {
     font-weight: bold;
 }
 
-.team-access-form-submit:hover, 
-.team-access-form-submit-post-submit-new-update:hover,
-.team-access-form-submit-post-submit-home:hover {
-    background-color: rgb(245, 244, 228);
-    color: rgb(22, 23, 29);
+.post-form-submit-form-submit:hover {
+    background-color: rgb(67, 134, 149, .5);
+    color: rgb(245, 244, 228, .5);
     cursor: pointer;
 }
-
 
 
 /* Responsiveness */
 
 @media screen and (max-width: 800px) {
-    .team-access-form-container {
+    .post-form-submit-form-container {
         position: absolute;
         top: 0;
         left: 10vw;
@@ -172,25 +127,19 @@ body, html {
         height: 100vh;
     }
 
-    .team-access-name-input, 
-    .team-access-project-input, 
-    .team-access-password-input,
-    .team-access-organization-input {
+    .post-form-submit-name-input, 
+    .post-form-submit-project-input, 
+    .post-form-submit-password-input,
+    .post-form-submit-organization-input {
         width: 50vw;
     }
 
-    .team-access-update-description {
+    .post-form-submit-update-description {
         width: 55vw;
     }
 
-    .team-access-form-submit-post-submit-home,
-    .team-access-form-submit-post-submit-new-update {
-        margin: 5vw;
-    }
-
-    .team-access-update-form,
-    .team-access-password-form,
-    .team-access-update-form-post-submit  {
+    .post-form-submit-update-form,
+    .post-form-submit-password-form  {
         width: 60vw;
         padding: 5vw;
         padding-bottom: 5vh;

@@ -8,28 +8,31 @@ import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } 
 import { initializeApp } from "firebase/app";
 import TeamAccess from './TeamAccess';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import greeting from '../../Constants/GreetingsList'
 
 
 
 
-export var TEAM_NAME = "Non-human"
+export var TEAM_NAME = greeting
 export var CLIENT_NAME = "Center For Digital Humanities"
 
 export default function TeamAccessPassword() {
 
     const [passwordCheck, setPasswordCheck] = useState("")
+    const [passwordCorrect, setPasswordCorrect] = useState(false)
     const [organizationName, setOrganizationName] = useState("")
     const navigate = useNavigate();
     // Listening for password to be correctly entered
     function login() {
+        const newWelcomeMessage = "Updates for: "
         if (passwordCheck == "web") { 
-            TEAM_NAME = "Web Team"  
+            TEAM_NAME = newWelcomeMessage + "Web Team"  
             CLIENT_NAME = "Center For Digital Humanities"         
             return navigate("/teams")
             }
 
         if (passwordCheck == "arvr") { 
-            TEAM_NAME = "AR/VR Team"           
+            TEAM_NAME = newWelcomeMessage + "AR/VR Team"           
             return navigate("/teams")
             }
         }

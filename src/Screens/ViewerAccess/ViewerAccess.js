@@ -10,8 +10,6 @@ import ViewerAccessPassword from './ViewerAccessPassword';
 import OrganizationData from '../../Functions/FirebaseData';
 
 
-
-
 const CLIENT_NAME = "Center For Digital Humanities"
 
 function ViewerAccess(props) {

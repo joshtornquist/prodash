@@ -7,21 +7,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import TeamAccessPassword, {TEAM_NAME, CLIENT_NAME} from './TeamAccessPassword';
+import firebase from '../../Functions/FirebaseData';
+import PostFormSubmit from '../../Components/PostFormSubmit/PostFormSubmit';
 
-
-const firebaseConfig = {
-  apiKey: "AIzaSyA1JzguBn8V2a4Lyp3u7KdN8Xcq2l-av7A",
-  authDomain: "prodash-474ff.firebaseapp.com",
-  projectId: "prodash-474ff",
-  storageBucket: "prodash-474ff.appspot.com",
-  messagingSenderId: "5441845336",
-  appId: "1:5441845336:web:56bba96aaa9debb3f7f22d"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 const db = getFirestore()
-
 
 
 function TeamAccess({ navigate, ...props }) {
@@ -31,19 +20,31 @@ function TeamAccess({ navigate, ...props }) {
     const [memberName, setMemberName] = useState(null)
     const [projectName, setProjectName] = useState(null)
     const [description, setDescription] = useState(null)
+    const [submitted, setSubmitted] = useState(false)
+    const [welcomeMessage, setWelcomeMessage] = useState(TEAM_NAME)
     
 
 
     // Pushing updates to Firebase
     async function update() {
-        await addDoc(collection(db, CLIENT_NAME), {
-            teamName: TEAM_NAME,
-            memberName: memberName,
-            projectName: projectName,
-            description: description,
-            date: startDate,
-                });
-            }
+        setSubmitted(!submitted)
+        setWelcomeMessage("Update Submitted Successfully")
+        // await addDoc(collection(db, CLIENT_NAME), {
+        //     teamName: TEAM_NAME,
+        //     memberName: memberName,
+        //     projectName: projectName,
+        //     description: description,
+        //     date: startDate,
+        //         });
+        //     setSubmitted(!submitted)
+        }
+
+    // Go back
+    function goBack() {
+        setSubmitted(!submitted)
+        setWelcomeMessage(TEAM_NAME + "!")
+    }
+
 
         
         return (
@@ -51,8 +52,9 @@ function TeamAccess({ navigate, ...props }) {
             <div className="team-access-container" style={{ backgroundSize: "cover", backgroundImage: `url(${TeamBackground})`}}>
                 <div className="team-access-form-container">
                     <div className="team-access-welcome-message">
-                        Welcome, {TEAM_NAME}!
+                        {welcomeMessage}
                     </div>
+                {!submitted && 
                     <div className="team-access-update-form">
                         <input placeholder="Name" className="team-access-name-input" onChange={(e) => setMemberName(e.target.value)}></input>
                         <input placeholder="Project" className="team-access-project-input" onChange={(e) => setProjectName(e.target.value)}></input>
@@ -60,6 +62,16 @@ function TeamAccess({ navigate, ...props }) {
                         <DatePicker className="team-access-date-picker" selected={startDate} onChange={(date) => setStartDate(date)} />
                         <input title="Submit" onClick={update} className="team-access-form-submit" type="submit"></input>
                     </div>
+                    }
+
+                {submitted && 
+                    <div className="team-access-update-form-post-submit">
+                        <button onClick={goBack} className="team-access-form-submit-post-submit-new-update">New update</button>
+                        <Link to='/home'>
+                            <button className="team-access-form-submit-post-submit-home">Home</button>
+                        </Link>
+                    </div>
+                    }
 
                 </div>
 

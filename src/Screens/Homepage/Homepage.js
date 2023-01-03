@@ -45,7 +45,7 @@ function Homepage(props) {
 
                     
                         <div className="homepage-buttons-wrapper">
-                            <Link to="/">
+                            <Link to="/admin-login">
                                 <img src={AdminLogo} className="homepage-admin-button"></img>
                             </Link>
                                  <div className="homepage-font">Admin</div>
