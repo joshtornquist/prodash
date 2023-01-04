@@ -7,9 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import AdminAccess from './AdminAccess';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete'
-
-
 
 
 export var TEAM_NAME = "Non-human"
@@ -20,16 +17,13 @@ export default function AdminAccessPassword() {
     const [passwordCheck, setPasswordCheck] = useState("")
     const [organizationName, setOrganizationName] = useState("")
     const navigate = useNavigate();
+
+
     // Listening for password to be correctly entered
     function login() {
-        if (passwordCheck == "web") { 
-            TEAM_NAME = "Web Admin"  
+        if (passwordCheck == "123") { 
+            TEAM_NAME = "Admin"  
             CLIENT_NAME = "Center For Digital Humanities"         
-            return navigate("/admins")
-            }
-
-        if (passwordCheck == "arvr") { 
-            TEAM_NAME = "AR/VR Admin"           
             return navigate("/admins")
             }
         }
@@ -42,7 +36,7 @@ export default function AdminAccessPassword() {
                     Log in
                 </div>
                 <div className="admin-access-password-form">
-                    <input placeholder="Organization" className="admin-access-organization-input" onChange={(e) => setOrganizationName(e.target.value)}></input>
+                    <input placeholder="Organization" className="admin-access-organization-input" ></input>
                     <input type="password" placeholder="Password" className="admin-access-password-input" onChange={(e) => setPasswordCheck(e.target.value)}></input>
                     <input title="Submit" onClick={login} className="admin-access-form-submit" type="submit"></input>
                 </div>

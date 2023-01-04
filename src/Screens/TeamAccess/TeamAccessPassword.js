@@ -9,30 +9,56 @@ import { initializeApp } from "firebase/app";
 import TeamAccess from './TeamAccess';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import greeting from '../../Constants/GreetingsList'
+import { getProjectsNames, 
+        getOrganizationList, 
+        getTeams,
+        getStoredHashedPassword,
+        storedHashedPassword
+    } from '../../Functions/FirebaseData';
+import HashPassword from '../../Functions/HashPassword'
 
-
-
+const organizationsList = getOrganizationList()
 
 export var TEAM_NAME = greeting
 export var CLIENT_NAME = "Center For Digital Humanities"
+export var LOGIN_STATUS = false
 
 export default function TeamAccessPassword() {
-
+    
+    
     const [passwordCheck, setPasswordCheck] = useState("")
-    const [passwordCorrect, setPasswordCorrect] = useState(false)
-    const [organizationName, setOrganizationName] = useState("")
+    const [teamSelection, setTeamSelection] = useState(false)
+    
+    const [teams, setTeams] = useState([])
     const navigate = useNavigate();
+     
+
+    function updateFormState(e) {
+        getTeams(e.target.value).then((response) => 
+            setTeams(response)
+        )
+        setTeamSelection(true)
+        
+    }
+
+    useEffect(() => {
+        console.log("")
+    }, [teams]) 
+
+
     // Listening for password to be correctly entered
     function login() {
-        const newWelcomeMessage = "Updates for: "
+        const newWelcomeMessage = " updates"
         if (passwordCheck == "web") { 
-            TEAM_NAME = newWelcomeMessage + "Web Team"  
-            CLIENT_NAME = "Center For Digital Humanities"         
+            LOGIN_STATUS = true
+            TEAM_NAME = "Web Team" + newWelcomeMessage 
+            CLIENT_NAME = "Center For Digital Humanities"  
             return navigate("/teams")
             }
 
         if (passwordCheck == "arvr") { 
-            TEAM_NAME = newWelcomeMessage + "AR/VR Team"           
+            LOGIN_STATUS = true
+            TEAM_NAME = "AR/VR Team" + newWelcomeMessage            
             return navigate("/teams")
             }
         }
@@ -45,7 +71,19 @@ export default function TeamAccessPassword() {
                     Log in
                 </div>
                 <div className="team-access-password-form">
-                    <input placeholder="Organization" className="team-access-organization-input" onChange={(e) => setOrganizationName(e.target.value)}></input>
+                    <select placeholder="Organization" onChange={(e) => updateFormState(e)} className="team-access-organization-input">
+                        <option value="Center For Digital Humanities">Center For Digital Humanities</option>
+                        <option value="Center For Digital Humanities">Center For Digital Humanities</option>
+
+                    </select>  
+                    {teamSelection && 
+                        <select placeholder="Organization" className="admin-access-organization-input" >
+                            {teams.map((team, index) => (
+                                <option key={index}>{team}</option>
+                            ))}
+                            
+                        </select>
+                    }                  
                     <input type="password" placeholder="Password" className="team-access-password-input" onChange={(e) => setPasswordCheck(e.target.value)}></input>
                     <input title="Submit" onClick={login} className="team-access-form-submit" type="submit"></input>
                 </div>

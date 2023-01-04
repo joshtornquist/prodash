@@ -16,9 +16,6 @@ body, html {
     height: 100vh;
 }
 
-
-
-
 .team-access-welcome-message {
     margin-top: 10vh;
     margin-left: 0vw;
@@ -27,6 +24,11 @@ body, html {
     color: rgb(245, 244, 228);
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
+}
+
+.team-access-organization-name {
+    font-size: .5em;
+    color: rgb(245, 244, 228, .5);
 }
 
 .team-access-update-form {
@@ -158,6 +160,10 @@ body, html {
     cursor: pointer;
 }
 
+.teams-access-no-login-text {
+    color: rgb(245, 244, 228, .5);
+    font-size: 16pt;
+}
 
 
 /* Responsiveness */
@@ -177,6 +183,7 @@ body, html {
     .team-access-password-input,
     .team-access-organization-input {
         width: 50vw;
+        padding-left: 3vw;
     }
 
     .team-access-update-description {
