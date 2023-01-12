@@ -7,6 +7,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import AdminAccess from './AdminAccess';
+import { getProjectsNames, 
+    getOrganizationList, 
+    getTeams,
+    getStoredHashedPassword,
+    storedHashedPassword
+} from '../../Functions/FirebaseData';
 
 
 export var TEAM_NAME = "Non-human"

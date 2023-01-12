@@ -14,10 +14,10 @@ body, html {
     background-color: transparent;
     width: 50vw;
     height: 100vh;
+    margin-top: 15vh;
 }
 
 .team-access-welcome-message {
-    margin-top: 10vh;
     margin-left: 0vw;
     width: 80vw;
     font-size: 2em;
@@ -34,8 +34,7 @@ body, html {
 .team-access-update-form {
     background-color: rgb(22, 23, 29, .9);
     width: 40vw;
-    height: 60vh;
-    margin-top: 5vh;
+    height: auto;
     margin-left: 0vw;
     font-family: 'Nunito', sans-serif; 
     padding: 2vw; 
@@ -126,6 +125,7 @@ body, html {
     background-color: rgb(145, 67, 63);
     color: rgb(245, 244, 228);
     font-weight: bold;
+    font-size: 12pt;
 }
 
 .team-access-form-submit-post-submit-new-update {
@@ -138,6 +138,7 @@ body, html {
     background-color: rgb(145, 67, 63);
     color: rgb(245, 244, 228);
     font-weight: bold;
+    font-size: 12pt;
 }
 
 .team-access-form-submit-post-submit-home {
@@ -150,6 +151,7 @@ body, html {
     background-color: rgb(67, 134, 149);
     color: rgb(245, 244, 228);
     font-weight: bold;
+    font-size: 12pt;
 }
 
 .team-access-form-submit:hover, 
@@ -158,6 +160,13 @@ body, html {
     background-color: rgb(245, 244, 228);
     color: rgb(22, 23, 29);
     cursor: pointer;
+}
+
+.team-access-form-submit:active, 
+.team-access-form-submit-post-submit-new-update:active,
+.team-access-form-submit-post-submit-home:active {
+    background-color: rgb(245, 244, 228, .5);
+
 }
 
 .teams-access-no-login-text {
@@ -199,6 +208,7 @@ body, html {
     .team-access-password-form,
     .team-access-update-form-post-submit  {
         width: 60vw;
+        height: auto;
         padding: 5vw;
         padding-bottom: 5vh;
     }

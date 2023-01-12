@@ -7,10 +7,12 @@ function Navbar() {
 
     return (
         <nav className="navbar">
-            <Link to="/home" >
-                <img className="navbar-logo" src={logo}></img>
+            <Link to="/home">
+                <button className="navbar-logo-button-wrapper">
+                    <img className="navbar-logo" src={logo}></img>
+                </button>
+                
             </Link>
-
         </nav>
         
     )

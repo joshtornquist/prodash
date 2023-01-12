@@ -7,6 +7,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import ViewerAccess from './ViewerAccess';
+import { getProjectsNames, 
+    getOrganizationList, 
+    getTeams,
+    getStoredHashedPassword,
+    storedHashedPassword,
+    db
+} from '../../Functions/FirebaseData';
 
 
 
@@ -14,18 +21,7 @@ const CLIENT_NAME = "Center For Digital Humanities"
 const CLIENT_UPDATE = CLIENT_NAME + "_Update"
 const TEAM_NAME = "Web Viewer"
 
-const firebaseConfig = {
-  apiKey: "AIzaSyA1JzguBn8V2a4Lyp3u7KdN8Xcq2l-av7A",
-  authDomain: "prodash-474ff.firebaseapp.com",
-  projectId: "prodash-474ff",
-  storageBucket: "prodash-474ff.appspot.com",
-  messagingSenderId: "5441845336",
-  appId: "1:5441845336:web:56bba96aaa9debb3f7f22d"
-};
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore()
 const docRef = doc(db,  CLIENT_NAME, "Web Viewer");
 
 

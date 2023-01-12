@@ -8,13 +8,13 @@ import TeamAccessPassword, {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from '../Scree
 
 
     const firebaseConfig = {
-        apiKey: "AIzaSyA1JzguBn8V2a4Lyp3u7KdN8Xcq2l-av7A",
+        apiKey: process.env.REACT_APP_API_KEY,
         authDomain: "prodash-474ff.firebaseapp.com",
         projectId: "prodash-474ff",
         storageBucket: "prodash-474ff.appspot.com",
         messagingSenderId: "5441845336",
         appId: "1:5441845336:web:56bba96aaa9debb3f7f22d"
-    };
+        };
     const firebase = initializeApp(firebaseConfig);
     const db = getFirestore()
     
@@ -85,4 +85,5 @@ export {getTeams};
 export {getOrganizationList};
 export {getStoredHashedPassword};
 export {storedHashedPassword};
+export {db}
 

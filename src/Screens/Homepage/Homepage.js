@@ -5,21 +5,12 @@ import TeamsLogo from "./images/TeamsLogo.png"
 import ViewerLogo from "./images/ViewerLogo.png"
 import AdminLogo from "./images/AdminLogo.png"
 
-
-
-
 const CLIENT_NAME = "Center For Digital Humanities"
 
 
 function Homepage(props) {
 
     const [info, setInfo] = useState(null)
-
-    
-
-
-
-
 
         return (
             <>

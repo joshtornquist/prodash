@@ -16,5 +16,11 @@ body, html {
     padding: 2vw;
 }
 
+.navbar-logo-button-wrapper {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 
 

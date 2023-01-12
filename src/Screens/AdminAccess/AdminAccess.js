@@ -7,10 +7,15 @@ import "react-datepicker/dist/react-datepicker.css";
 import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import AdminAccessPassword, {TEAM_NAME, CLIENT_NAME} from './AdminAccessPassword';
-import firebase from '../../Functions/FirebaseData';
+import { getProjectsNames, 
+    getOrganizationList, 
+    getTeams,
+    getStoredHashedPassword,
+    storedHashedPassword,
+    db
+} from '../../Functions/FirebaseData';
 
 
-const db = getFirestore()
 
 
 

@@ -9,7 +9,9 @@ const greetings =
     "Hello, mysterious stranger!",
     "I'm going to need to see ID",
     "Hi, who are you?",
-    "Hello, alien impostor"
+    "Hello, alien impostor",
+    "This is awkward...",
+    "Lost you are...login you must"
 ]
 
 function getRandomInt(max) {
