@@ -1,7 +1,7 @@
 
 .homepage-font {
-    font-family: 'Nunito', sans-serif;
-    font-weight: bold;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
     color: rgb(243, 241, 211);
     text-decoration: none;
 }

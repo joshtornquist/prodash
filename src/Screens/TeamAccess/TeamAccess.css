@@ -1,5 +1,5 @@
 body, html {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .team-access-container {
@@ -22,7 +22,7 @@ body, html {
     width: 80vw;
     font-size: 2em;
     color: rgb(245, 244, 228);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-weight: bold;
 }
 
@@ -36,7 +36,7 @@ body, html {
     width: 40vw;
     height: auto;
     margin-left: 0vw;
-    font-family: 'Nunito', sans-serif; 
+    font-family: 'JetBrains Mono', monospace; 
     padding: 2vw; 
     padding-bottom: 5vh;
     border-radius: 25px;
@@ -48,7 +48,7 @@ body, html {
     height: auto;
     margin-top: 5vh;
     margin-left: 0vw;
-    font-family: 'Nunito', sans-serif; 
+    font-family: 'JetBrains Mono', monospace;
     padding: 10vw; 
     border-radius: 25px;
     display: flex;
@@ -64,7 +64,7 @@ body, html {
     height: auto;
     margin-top: 1vh;
     margin-left: 0vw;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     padding: 4vw;
     border-radius: 25px;
     
@@ -83,7 +83,7 @@ body, html {
     padding-left: 1.5vw;
     color: rgb(22, 23, 29);
     font-size: 10pt;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     background-color: rgb(245, 244, 228);
 }
 
@@ -96,7 +96,7 @@ body, html {
     text-align: center;
     font-size: 10pt;
     font-weight: bold;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     background-color: rgb(245, 244, 228);
 }
 
@@ -111,7 +111,7 @@ body, html {
     padding-top: 2vh;
     resize: none;
     font-size: 10pt;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     background-color: rgb(245, 244, 228);
 }
 
@@ -121,11 +121,11 @@ body, html {
     height: 7vh;
     border-radius: 25px;
     border: none;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     background-color: rgb(145, 67, 63);
     color: rgb(245, 244, 228);
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 9pt;
 }
 
 .team-access-form-submit-post-submit-new-update {
@@ -134,7 +134,7 @@ body, html {
     height: 7vh;
     border-radius: 25px;
     border: none;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     background-color: rgb(145, 67, 63);
     color: rgb(245, 244, 228);
     font-weight: bold;
@@ -147,7 +147,7 @@ body, html {
     height: 7vh;
     border-radius: 25px;
     border: none;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     background-color: rgb(67, 134, 149);
     color: rgb(245, 244, 228);
     font-weight: bold;
@@ -171,7 +171,7 @@ body, html {
 
 .teams-access-no-login-text {
     color: rgb(245, 244, 228, .5);
-    font-size: 16pt;
+    font-size: 12pt;
 }
 
 

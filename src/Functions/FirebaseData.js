@@ -3,17 +3,17 @@ import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { doc, getDocs, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import TeamAccessPassword, {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from '../Screens/TeamAccess/TeamAccessPassword';
+import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from './Login';
 
 
 
     const firebaseConfig = {
         apiKey: process.env.REACT_APP_API_KEY,
-        authDomain: "prodash-474ff.firebaseapp.com",
-        projectId: "prodash-474ff",
-        storageBucket: "prodash-474ff.appspot.com",
-        messagingSenderId: "5441845336",
-        appId: "1:5441845336:web:56bba96aaa9debb3f7f22d"
+        authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+        projectId: process.env.REACT_APP_PROJECT_ID,
+        storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+        messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+        appId: process.env.REACT_APP_APP_ID
         };
     const firebase = initializeApp(firebaseConfig);
     const db = getFirestore()

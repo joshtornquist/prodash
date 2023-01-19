@@ -1,13 +1,14 @@
 import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
 import { useNavigate, Link, useLocation, Navigate } from 'react-router-dom';
 import "./TeamAccess.css";
-import TeamBackground from "./images/TeamAccessBackground.png"
+import TeamBackground from "./images/TeamAccessBackgroundGradient.png"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TeamAccess from './TeamAccess';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import greeting from '../../Constants/GreetingsList'
-import { getProjectsNames, 
+import { 
+    getProjectsNames, 
     getOrganizationList, 
     getTeams,
     getStoredHashedPassword,
@@ -15,22 +16,18 @@ import { getProjectsNames,
     db
 } from '../../Functions/FirebaseData';
 import HashPassword from '../../Functions/HashPassword'
+import Login from '../../Functions/Login';
 
-const organizationsList = getOrganizationList()
 
-export var TEAM_NAME = greeting
-export var CLIENT_NAME = "Center For Digital Humanities"
-export var LOGIN_STATUS = false
 
 export default function TeamAccessPassword() {
-    
+    const organizationsList = getOrganizationList()
     
     const [passwordCheck, setPasswordCheck] = useState("")
     const [teamSelection, setTeamSelection] = useState(false)
-    
+    const navigate = useNavigate()
     const [teams, setTeams] = useState([])
     const [client, setClient] = useState([])
-    const navigate = useNavigate();
      
 
     function updateFormState(e) {
@@ -50,19 +47,13 @@ export default function TeamAccessPassword() {
 
     // Listening for password to be correctly entered
     function login() {
-        if (passwordCheck == "web") { 
-            LOGIN_STATUS = true
-            TEAM_NAME = "Web Team" 
-            CLIENT_NAME = "Center For Digital Humanities"  
+        var login = Login(passwordCheck)
+        if (login == true) {
             return navigate("/teams")
-            }
-
-        if (passwordCheck == "arvr") { 
-            LOGIN_STATUS = true
-            TEAM_NAME = "AR/VR Team"            
-            return navigate("/teams")
-            }
+        } else {
+            console.log("Not sure")
         }
+    }
 
     return (
         <>
@@ -74,7 +65,7 @@ export default function TeamAccessPassword() {
                         Log in
                     </div>
                     <select onChange={(e) => updateFormState(e)} className="team-access-organization-input">
-                        <option value="Select organization" selected>Select organization</option>
+                        <option value="Select organization">Select organization</option>
                         <option value="Center For Digital Humanities">Center For Digital Humanities</option>
 
                     </select>  

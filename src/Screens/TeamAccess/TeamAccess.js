@@ -1,13 +1,14 @@
 import React, { useEffect, useState, Autocomplete, Suspense, useRef, useId } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import "./TeamAccess.css";
-import TeamBackground from "./images/TeamAccessBackground.png"
+import TeamBackground from "./images/TeamAccessBackgroundGradient.png"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import TeamAccessPassword, {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from './TeamAccessPassword';
-import { getProjectsNames, 
+import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from '../../Functions/Login';
+import { 
+    getProjectsNames, 
     getOrganizationList, 
     getTeams,
     getStoredHashedPassword,
@@ -15,8 +16,6 @@ import { getProjectsNames,
     db
     } from '../../Functions/FirebaseData';
 import PostFormSubmit from '../../Components/PostFormSubmit/PostFormSubmit';
-
-
 
 
 function TeamAccess({ navigate, ...props }) {
@@ -30,21 +29,20 @@ function TeamAccess({ navigate, ...props }) {
     const [welcomeMessage, setWelcomeMessage] = useState(TEAM_NAME)
     const [passwordSuccess, setPasswordSuccess] = useState(false)
     
-    
 
 
     // Pushing updates to Firebase
     async function update() {
         setSubmitted(!submitted)
         setWelcomeMessage("Submitted Successfully")
-        // await addDoc(collection(db, CLIENT_NAME), {
-        //     teamName: TEAM_NAME,
-        //     memberName: memberName,
-        //     projectName: projectName,
-        //     description: description,
-        //     date: startDate,
-        //         });
-        //     setSubmitted(!submitted)
+        await addDoc(collection(db, CLIENT_NAME), {
+            teamName: TEAM_NAME,
+            memberName: memberName,
+            projectName: projectName,
+            description: description,
+            date: startDate,
+                });
+            setSubmitted(!submitted)
         }
 
     // Go back
