@@ -22,10 +22,9 @@ import Login from '../../Functions/Login';
 
 export default function TeamAccessPassword() {
     const organizationsList = getOrganizationList()
-    
+    const navigate = useNavigate()
     const [passwordCheck, setPasswordCheck] = useState("")
     const [teamSelection, setTeamSelection] = useState(false)
-    const navigate = useNavigate()
     const [teams, setTeams] = useState([])
     const [client, setClient] = useState([])
      
