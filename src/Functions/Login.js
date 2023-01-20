@@ -39,6 +39,12 @@ export var LOGIN_STATUS = false
             TEAM_NAME = "Robotics Team" 
             return true;           
             }
+    
+        if (password == process.env.REACT_APP_PHOTOGRAPHY_TEAM_PASSWORD) { 
+            LOGIN_STATUS = true
+            TEAM_NAME = "Photography Team" 
+            return true;           
+            }
         
         return false;
 
