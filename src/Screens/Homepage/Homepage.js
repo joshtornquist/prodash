@@ -24,9 +24,9 @@ function Homepage(props) {
                         <div className="homepage-buttons-wrapper">
                             {/* TODO */}
                             <Link to="/dashboard-login">
-                                <img src={DashboardLogo} className="homepage-viewers-button"></img>
+                                <img src={DashboardLogo} className="homepage-dashboard-button"></img>
                             </Link>
-                                <div className="homepage-font">Viewers</div>
+                                <div className="homepage-font">Dashboard</div>
                         </div>
                     
 
