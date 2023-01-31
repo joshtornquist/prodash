@@ -40,7 +40,7 @@ export default function ViewerAccessPassword() {
 
     return (
         <>
-        <div className="viewer-access-container" style={{ backgroundSize: "cover", backgroundImage: `url(${ViewerBackground})`}}>
+        <div className="viewer-access-container-password" style={{ backgroundSize: "cover", backgroundImage: `url(${ViewerBackground})`}}>
             <div className="viewer-access-form-container">
                 <div className="viewer-access-welcome-message">
                     Log in

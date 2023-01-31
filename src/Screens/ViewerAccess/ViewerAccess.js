@@ -1,55 +1,91 @@
 import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
 import "./ViewerAccess.css";
-import ViewerBackground from "./images/ViewerBackgroundPostLogin.png"
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
 import ViewerAccessPassword from './ViewerAccessPassword';
-import OrganizationData from '../../Functions/FirebaseData';
+import {getChartData} from '../../Functions/FirebaseData';
+import {
+  Chart as ChartJS,
+  LinearScale,
+  PointElement,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bubble } from 'react-chartjs-2';
+import { BounceLoader } from 'react-spinners';
+import { colors } from '../../Constants/Colors';
+
+ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 
 
-const CLIENT_NAME = "Center For Digital Humanities"
+const client = "Center For Digital Humanities"
 
 function ViewerAccess(props) {
+  const [data, setData] = useState({});
+  function bubbleData() {
 
-    const [info, setInfo] = useState(null)
+    var fetchedData = getChartData(client).then((res) => {
+    let i = 0
+    const chartData = {
+      labels: [],
+      datasets: []
+    };
 
-    var i = 100
-    var calcHight = (1 * i) / 2 + "vh"
+    for (let team in res) {
+      if (team !== "undefined") {
+        var teamTotalUpdates = 0
+        var totalMembers = new Set()
+        for (let name in res[team]) {
+          if (name !== "undefined") {
+            teamTotalUpdates += (res[team][name])
+            totalMembers.add(name)
+            
+          }
+        }
+        if (totalMembers.size === 1 && teamTotalUpdates === 1) {
+          totalMembers.clear()
+        }
+        // console.log(totalMembers.size)
+        // console.log(teamTotalUpdates + ": " + team)
+        chartData.datasets.push({
+          label: team,
+          backgroundColor: colors[i],
+          borderColor: "transparent",
+          borderWidth: 1,
+          hoverBackgroundColor: "rgba(245, 244, 228, .2)",
+          hoverBorderColor: "transparent",
+          data: [{
+            x: teamTotalUpdates,
+            y: teamTotalUpdates,
+            r: (totalMembers.size / (teamTotalUpdates)) * (window.innerWidth * .05),
+          }]
+        });
+        i++
+      }
+    }
+      setData(chartData)   
+      })
+    }
 
-        return (
-            <>
-            <div className="viewer-access-container" style={{ backgroundSize: "cover", backgroundImage: `url(${ViewerBackground})`}}>
-                <div className="viewer-stats-container">
-                    <div className="viewer-stat-message">
-                        This Week in a Nutshell 
-                    </div>
-                    {/* <button style={{width: "20px", height: "20px"}} onClick={OrganizationData}></button> */}
-                        <div className="viewer-access-wrapper-container">
-                        <div className="viewer-stat-wrapper">
-                            <div className="viewer-stats-bar" style={{height: calcHight}}></div>
-                            <div className="viewer-stats-team-name">Web Team</div> 
-                        </div>
-                        <div className="viewer-stat-wrapper">
-                            <div className="viewer-stats-bar" style={{height: calcHight}}></div>
-                            <div className="viewer-stats-team-name">Web Team</div> 
-                        </div>
-                        </div>
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      bubbleData()
+    }, 10000);
+    return () => clearInterval(intervalId);
+  });
 
-
-
-                    
-
-
+      
+    return (
+          <>
+              <div className="viewer-access-container">
+                  {Object.keys(data).length !== 0  ? <Bubble data={data}  /> : <div className="viewer-access-loading"><BounceLoader color="#438695" /></div>}
+             
+                <div>
+                  Top Performing teams:
                 </div>
+              </div> 
+
+          </>
+      )
+  }
 
 
-
-            </div>
-            </>
-        )
-
-}
 export default ViewerAccess;

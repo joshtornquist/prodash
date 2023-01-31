@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { doc, getDocs, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, getDocs, getDoc, getFirestore, addDoc, collection, query, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from './Login';
 
@@ -20,6 +20,27 @@ import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from './Login';
     const db = getFirestore()
     
     
+
+    // GET ARRAY OF DOCS
+    async function getChartData(client) {
+        let data = {}
+        const q = query(collection(db, client));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+        var docRef = doc.data();
+        let team = docRef.teamName;
+        let name = docRef.memberName;
+        if (!data[team]) {
+            data[team] = {};
+        }
+        if (!data[team][name]) {
+            data[team][name] = 1;
+        } else {
+            data[team][name] += 1
+        }
+         });
+         return data;
+        }
 
     // GET ARRAY OF PROJECT NAMES
     async function getTeams(client) {
@@ -81,10 +102,13 @@ import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from './Login';
 
 
 export default firebase;
-export {getProjectsNames};
-export {getTeams};
-export {getOrganizationList};
-export {getStoredHashedPassword};
-export {storedHashedPassword};
-export {db}
+export {getProjectsNames,
+    getTeams,
+    getOrganizationList,
+    getStoredHashedPassword,
+    storedHashedPassword,
+    getChartData,
+    db
+};
+
 

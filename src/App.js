@@ -24,10 +24,10 @@ function App() {
           <Route exact path='/teams-login' element={<TeamAccessPassword/>}/>
           <Route exact path='/teams' element={<TeamAccess/>}/>
 
-          {/* <Route exact path='/viewer-login' element={<ViewerAccessPassword/>}/>
+          <Route exact path='/viewer-login' element={<ViewerAccessPassword/>}/>
           <Route exact path='/viewer' element={<ViewerAccess/>}/>
 
-          <Route exact path='/admin-login' element={<AdminAccessPassword/>}/>
+          {/* <Route exact path='/admin-login' element={<AdminAccessPassword/>}/>
           <Route exact path='/admins' element={<AdminAccess/>}/> */}
 
           </Routes>

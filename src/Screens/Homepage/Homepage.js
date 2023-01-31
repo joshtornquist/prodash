@@ -23,7 +23,7 @@ function Homepage(props) {
                     
                         <div className="homepage-buttons-wrapper">
                             {/* TODO */}
-                            <Link to="/home">
+                            <Link to="/viewer-login">
                                 <img src={ViewerLogo} className="homepage-viewers-button"></img>
                             </Link>
                                 <div className="homepage-font">Viewers</div>
