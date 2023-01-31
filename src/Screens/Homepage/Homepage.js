@@ -22,7 +22,6 @@ function Homepage(props) {
                     
                     
                         <div className="homepage-buttons-wrapper">
-                            {/* TODO */}
                             <Link to="/dashboard-login">
                                 <img src={DashboardLogo} className="homepage-dashboard-button"></img>
                             </Link>
@@ -32,7 +31,6 @@ function Homepage(props) {
 
                     
                         <div className="homepage-buttons-wrapper">
-                            {/* TODO */}
                             <Link to="/home">
                                 <img src={AdminLogo} className="homepage-admin-button"></img>
                             </Link>
