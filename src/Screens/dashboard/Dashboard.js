@@ -1,7 +1,6 @@
-import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
-import "./ViewerAccess.css";
-import ViewerAccessPassword from './ViewerAccessPassword';
-import {getChartData} from '../../Functions/FirebaseData';
+import React, { useEffect, useState } from 'react';
+import "./Dashboard.css";
+import {getChartData} from '../../functions/FirebaseData';
 import {
   Chart as ChartJS,
   LinearScale,
@@ -11,14 +10,14 @@ import {
 } from 'chart.js';
 import { Bubble } from 'react-chartjs-2';
 import { BounceLoader } from 'react-spinners';
-import { colors } from '../../Constants/Colors';
+import { colors } from '../../constants/Colors';
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 
 
 const client = "Center For Digital Humanities"
 
-function ViewerAccess(props) {
+function Dashboard(props) {
   const [data, setData] = useState({});
   function bubbleData() {
 
@@ -75,12 +74,8 @@ function ViewerAccess(props) {
       
     return (
           <>
-              <div className="viewer-access-container">
-                  {Object.keys(data).length !== 0  ? <Bubble data={data}  /> : <div className="viewer-access-loading"><BounceLoader color="#438695" /></div>}
-             
-                <div>
-                  Top Performing teams:
-                </div>
+              <div className="dashboard-access-container">
+                  {Object.keys(data).length !== 0  ? <Bubble data={data}  /> : <div className="dashboard-access-loading"><BounceLoader color="#438695" /></div>}
               </div> 
 
           </>
@@ -88,4 +83,4 @@ function ViewerAccess(props) {
   }
 
 
-export default ViewerAccess;
+export default Dashboard;

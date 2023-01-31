@@ -1,21 +1,12 @@
-import React, { useEffect, useState, Autocomplete, Suspense, useRef, useId } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
-import "./TeamAccess.css";
-import TeamBackground from "./images/TeamAccessBackgroundGradient.png"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import "./Teams.css";
+import TeamBackground from "./images/teams-background.png"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from '../../Functions/Login';
-import { 
-    getProjectsNames, 
-    getOrganizationList, 
-    getTeams,
-    getStoredHashedPassword,
-    storedHashedPassword,
-    db
-    } from '../../Functions/FirebaseData';
-import PostFormSubmit from '../../Components/PostFormSubmit/PostFormSubmit';
+import { addDoc, collection } from "firebase/firestore";
+import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from '../../functions/Login';
+import { db } from '../../functions/FirebaseData';
 
 
 function TeamAccess({ navigate, ...props }) {

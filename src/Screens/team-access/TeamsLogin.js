@@ -1,22 +1,10 @@
-import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
-import { useNavigate, Link, useLocation, Navigate } from 'react-router-dom';
-import "./TeamAccess.css";
-import TeamBackground from "./images/TeamAccessBackgroundGradient.png"
-import DatePicker from "react-datepicker";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import "./Teams.css";
+import TeamBackground from "./images/teams-background.png"
 import "react-datepicker/dist/react-datepicker.css";
-import TeamAccess from './TeamAccess';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete'
-import greeting from '../../Constants/GreetingsList'
-import { 
-    getProjectsNames, 
-    getOrganizationList, 
-    getTeams,
-    getStoredHashedPassword,
-    storedHashedPassword,
-    db
-} from '../../Functions/FirebaseData';
-import HashPassword from '../../Functions/HashPassword'
-import Login from '../../Functions/Login';
+import { getOrganizationList, getTeams } from '../../functions/FirebaseData';
+import Login from '../../functions/Login';
 
 
 

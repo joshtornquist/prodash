@@ -1,22 +1,11 @@
-import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
-import "./AdminAccess.css";
-import AdminBackground from "./images/AdminAccessBackground.png"
+import React, { useState } from 'react';
+import "./Admin.css";
+import AdminBackground from "./images/admin-background.png"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { doc, getDoc, getFirestore, addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import AdminAccessPassword, {TEAM_NAME, CLIENT_NAME} from './AdminAccessPassword';
-import { getProjectsNames, 
-    getOrganizationList, 
-    getTeams,
-    getStoredHashedPassword,
-    storedHashedPassword,
-    db
-} from '../../Functions/FirebaseData';
-
-
-
+import { addDoc, collection } from "firebase/firestore";
+import {TEAM_NAME, CLIENT_NAME} from './AdminLogin';
+import { db } from '../../functions/FirebaseData';
 
 
 function AdminAccess({ navigate, ...props }) {

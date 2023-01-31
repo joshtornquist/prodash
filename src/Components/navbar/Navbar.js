@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import { useHistory, Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom'
 import './Navbar.css';
-import logo from "../Components/images/prodash.png"
+import logo from "./images/prodash.png"
 
 function Navbar() {
 

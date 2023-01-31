@@ -1,8 +1,6 @@
-import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import TeamAccess from '../../Screens/TeamAccess/TeamAccess';
 import "./PostFormSubmit.css";
-import PostFormSubmitBackground from './images/PostSubmitFormBackground.png'
 
 function PostFormSubmit() {
 

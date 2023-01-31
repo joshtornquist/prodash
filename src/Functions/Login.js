@@ -1,6 +1,5 @@
-import { useNavigate, Link, useLocation, Navigate } from 'react-router-dom';
-import greeting from '../Constants/GreetingsList'
-import HashPassword from '../Functions/HashPassword'
+import greeting from '../constants/GreetingsList'
+import HashPassword from './HashPassword'
 
 export var TEAM_NAME = greeting
 export var CLIENT_NAME = "Center For Digital Humanities"

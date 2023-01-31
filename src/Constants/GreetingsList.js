@@ -1,6 +1,3 @@
-
-
-
 const greetings = 
 [
     "Who goes there?",

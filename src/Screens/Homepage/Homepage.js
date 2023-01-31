@@ -1,9 +1,9 @@
 import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import "./Homepage.css";
-import TeamsLogo from "./images/TeamsLogo.png"
-import ViewerLogo from "./images/LockedViewersIcon.png"
-import AdminLogo from "./images/LockedAdminIcon.png"
+import TeamsLogo from "./images/team-icon.png"
+import DashboardLogo from "./images/dashboard-icon.png"
+import AdminLogo from "./images/locked-admin-icon.png"
 
 function Homepage(props) {
 
@@ -23,8 +23,8 @@ function Homepage(props) {
                     
                         <div className="homepage-buttons-wrapper">
                             {/* TODO */}
-                            <Link to="/viewer-login">
-                                <img src={ViewerLogo} className="homepage-viewers-button"></img>
+                            <Link to="/dashboard-login">
+                                <img src={DashboardLogo} className="homepage-viewers-button"></img>
                             </Link>
                                 <div className="homepage-font">Viewers</div>
                         </div>

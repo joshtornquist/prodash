@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Routes } from 
 'react-router-dom';
-import TeamAccess from './Screens/TeamAccess/TeamAccess';
-import TeamAccessPassword from './Screens/TeamAccess/TeamAccessPassword';
-import ViewerAccess from './Screens/ViewerAccess/ViewerAccess';
-import ViewerAccessPassword from './Screens/ViewerAccess/ViewerAccessPassword';
-import AdminAccess from './Screens/AdminAccess/AdminAccess';
-import AdminAccessPassword from './Screens/AdminAccess/AdminAccessPassword';
-import Navbar from "./Components/Navbar"
-import Homepage from './Screens/Homepage/Homepage';
+import Teams from './screens/team-access/Teams';
+import TeamsLogin from './screens/team-access/TeamsLogin';
+import Dashboard from './screens/dashboard/Dashboard';
+import DashboardLogin from './screens/dashboard/DashboardLogin';
+import Admin from './screens/admins/Admin';
+import AdminLogin from './screens/admins/AdminLogin';
+import Navbar from "./components/navbar/Navbar"
+import Homepage from './screens/homepage/Homepage';
 
 
 function App() {
@@ -21,14 +21,14 @@ function App() {
           <Route exact path='/' element={<Homepage/>}/>    
           <Route path='/home' element={<Homepage/>}/>
 
-          <Route exact path='/teams-login' element={<TeamAccessPassword/>}/>
-          <Route exact path='/teams' element={<TeamAccess/>}/>
+          <Route exact path='/teams-login' element={<TeamsLogin/>}/>
+          <Route exact path='/teams' element={<Teams/>}/>
 
-          <Route exact path='/viewer-login' element={<ViewerAccessPassword/>}/>
-          <Route exact path='/viewer' element={<ViewerAccess/>}/>
+          <Route exact path='/dashboard-login' element={<DashboardLogin/>}/>
+          <Route exact path='/dashboard' element={<Dashboard/>}/>
 
-          {/* <Route exact path='/admin-login' element={<AdminAccessPassword/>}/>
-          <Route exact path='/admins' element={<AdminAccess/>}/> */}
+          {/* <Route exact path='/admin-login' element={<AdminLogin/>}/>
+          <Route exact path='/admins' element={<Admin/>}/> */}
 
           </Routes>
           

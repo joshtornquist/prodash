@@ -1,10 +1,7 @@
-
-import React, { useEffect, useState, Suspense, useRef, useId } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
+import React from 'react';
 import { doc, getDocs, getDoc, getFirestore, addDoc, collection, query, updateDoc, arrayUnion } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from './Login';
-
+import {TEAM_NAME, CLIENT_NAME } from './Login';
 
 
     const firebaseConfig = {
@@ -84,8 +81,8 @@ import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from './Login';
     }
 
     // FETCH HASHED PASSWORD
-    var storedHashedPassword = ""
     async function getStoredHashedPassword() {
+        var storedHashedPassword = ""
         const docRef = doc(db, CLIENT_NAME, "profile");
         const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
@@ -97,16 +94,17 @@ import {TEAM_NAME, CLIENT_NAME, LOGIN_STATUS} from './Login';
                     }
                 })
             }
+        return storedHashedPassword;
         }
 
 
 
 export default firebase;
-export {getProjectsNames,
+export {
+    getProjectsNames,
     getTeams,
     getOrganizationList,
     getStoredHashedPassword,
-    storedHashedPassword,
     getChartData,
     db
 };
