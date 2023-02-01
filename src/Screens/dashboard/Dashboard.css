@@ -79,8 +79,8 @@ body, html {
 
 .dashboard-access-form-submit {
     margin-top: 3vh;
-    width: 100px;
-    height: 7vh;
+    width: 6rem;
+    height: 3rem;
     border-radius: 25px;
     border: none;
     font-family: 'Nunito', sans-serif;

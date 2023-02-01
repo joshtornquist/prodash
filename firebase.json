@@ -8,9 +8,14 @@
     ],
     "rewrites": [
       {
+        "source": "^/$",
+        "destination": "https://www.prodash.io"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
     ]
   }
 }
+
