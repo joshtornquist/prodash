@@ -2,5 +2,5 @@ Prodash is a web app that allows organizations with one or more teams to provide
 
 In addition to the above service, Prodash features a dashboard where updates made by teams will be presented in real-time for data visualization using Chart.js. 
 
-Check it out: https://www.prodash.io
+Check it out: https://prodash.io
 
